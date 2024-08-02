@@ -157,5 +157,33 @@ credit = CTkLabel(root, text="Fait par Snipeur060 pour ENCHANTED PARKS", font=("
 credit.grid(row=9, column=0, columnspan=2)
 
 
+#un event
+def paste(e):
+    """
+    Fonction qui permet de coller le hash dans l'entrée
+    :param e: l'événement
+    :return: None
+    """
+    #on colle le texte
+    hashentry.insert(0, root.clipboard_get())
+    #on empêche de continuer l'événement
+    return "break"
+
+
+def coll():
+    hashentry.event_generate("<Control-v>")
+
+#on ajoute le menu
+menu = Menu(root, tearoff=0)
+
+menu.add_command(label="Coller",background="#141414",foreground="white" ,command=coll)
+#on ajoute le menu à l'entrée
+#https://stackoverflow.com/questions/32289175/list-of-all-tkinter-events
+#https://stackoverflow.com/questions/75259242/tkinter-processing-button-clicks-using-lambda-eval
+hashentry.bind("<Button-3>", lambda e: menu.post(e.x_root, e.y_root))
+hashentry.bind("<Control-v>", paste)
+
+
+
 
 root.mainloop()
