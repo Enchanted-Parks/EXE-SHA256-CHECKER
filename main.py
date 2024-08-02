@@ -44,7 +44,7 @@ def manipfile():
 
 
 #Le titre
-title = CTkLabel(root, text="Enpa Digest", font=("Arial", 20))
+title = CTkLabel(root, text="Enpa Checksum", font=("Arial", 20))
 #on utilise le grid (un truc bien sympa qui est un tableau en gros)
 title.grid(row=0, column=0, columnspan=2)
 
