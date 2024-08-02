@@ -10,8 +10,10 @@ root.title("Enpa Digest")
 root.geometry("800x600")
 root.resizable(False, False)
 
+#on force un peut pour que le texte soit bien collé
 n_rows = 10
 n_columns = 2
+#permet de configurer plus facilement la grid (le but avoir une ui plutôt jolie)
 for i in range(n_rows):
     root.grid_rowconfigure(i, weight=1)
 for i in range(n_columns):
