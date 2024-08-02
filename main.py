@@ -34,6 +34,9 @@ def manipfile():
     """
     #on récupère le chemin du fichier
     file = fichier_dialogue()
+    #on affiche le boutton pour calculer le hash
+    hashbutton.grid(row=3, column=0, columnspan=2)
+
     #on affiche le chemin du fichier
     path.configure(text=file)
 
@@ -83,7 +86,7 @@ def calculhash():
 
 
 hashbutton = CTkButton(root, text="Calculer le hash", command=calculhash)
-hashbutton.grid(row=3, column=0, columnspan=2)
+
 
 #Le label pour afficher le hash
 hashlabel = CTkLabel(root, text="", font=("Arial", 10))
@@ -126,13 +129,21 @@ def comphash():
     hash2 = hashentry.get()
     #on compare les hash
     if hash == hash2:
+        hashcompres.configure(text="Les hash sont identiques", fg_color="green")
         messagebox.showinfo("No problemo", "Les hash sont identiques")
+
     else:
+        hashcompres.configure(text="Les hash ne sont pas identiques", fg_color="red")
         messagebox.showerror("Attention !!!", "Les hash ne sont pas identiques ⚠️")
+
 
 #le boutton pour comparer les hash
 comparehashbutton = CTkButton(root, text="Comparer les hash",command=comphash)
 
+
+#ici pour le label
+hashcompres = CTkLabel(root, text="", font=("Arial", 10))
+hashcompres.grid(row=8, column=0, columnspan=2)
 
 
 
