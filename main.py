@@ -9,6 +9,7 @@ from tkinter import messagebox
 root = CTk()
 root.title("Enpa Digest")
 root.geometry("800x600")
+root.iconbitmap("logoenpa.ico")
 root.resizable(False, False)
 calculable = False
 #on force un peut pour que le texte soit bien collé
