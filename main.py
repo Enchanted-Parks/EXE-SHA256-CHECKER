@@ -7,7 +7,7 @@ from tkinter import messagebox
 # nouvelle fenêtre
 
 root = CTk()
-root.title("Enpa Digest")
+root.title("Enpa Checksum")
 root.geometry("800x600")
 root.iconbitmap("logoenpa.ico")
 root.resizable(False, False)
