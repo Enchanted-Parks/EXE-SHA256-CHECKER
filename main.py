@@ -26,6 +26,17 @@ def fichier_dialogue():
     """
     return filedialog.askopenfilename()
 
+def manipfile():
+    """
+    Fonction qui permet de manipuler un fichier
+    :return: None
+    """
+    #on récupère le chemin du fichier
+    file = fichier_dialogue()
+    #on affiche le chemin du fichier
+    path.configure(text=file)
+
+
 #Le titre
 title = CTkLabel(root, text="Enpa Digest", font=("Arial", 20))
 #on utilise le grid (un truc bien sympa qui est un tableau en gros)
@@ -37,8 +48,35 @@ choosefileL = CTkLabel(root, text="Choisissez un fichier: ", font=("Arial", 15))
 choosefileL.grid(row=1, column=0, columnspan=2)
 
 #Le boutton pout les dialogues
-fdialog = CTkButton(root, text="Choisir un fichier", command=fichier_dialogue)
+fdialog = CTkButton(root, text="Choisir un fichier", command=manipfile)
 fdialog.grid(row=1, column=1, columnspan=1)
+
+
+#Le label pour afficher le chemin du fichier
+path = CTkLabel(root, text="", font=("Arial", 10))
+path.grid(row=2, column=0, columnspan=2)
+
+#on met ici le boutton pour confirmer le calcul du hash
+
+def calculhash():
+    """
+    Fonction qui permet de calculer le hash d'un fichier
+    :return: None
+    """
+    #on récupère le chemin du fichier
+    file = path.cget("text")
+    #on calcul le hash du fichier
+    digest = checkdigest(file)
+    #on affiche le hash du fichier
+    hashlabel.configure(text=digest)
+
+
+hashbutton = CTkButton(root, text="Calculer le hash", command=calculhash)
+hashbutton.grid(row=3, column=0, columnspan=2)
+
+#Le label pour afficher le hash
+hashlabel = CTkLabel(root, text="", font=("Arial", 10))
+hashlabel.grid(row=4, column=0, columnspan=2)
 
 
 
