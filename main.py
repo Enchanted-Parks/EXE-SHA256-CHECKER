@@ -74,6 +74,10 @@ def calculhash():
         digest = checkdigest(file)
         #on affiche le hash du fichier
         hashlabel.configure(text=digest)
+        #on affiche le boutton pour copier le hash
+        copybutton.grid(row=5, column=0, columnspan=2)
+        hashentry.grid(row=6, column=0, columnspan=2)
+        comparehashbutton.grid(row=7, column=0, columnspan=2)
     except FileNotFoundError:
         messagebox.showerror("Erreur", "Veuillez choisir un fichier avant de calculer le hash")
 
@@ -85,6 +89,29 @@ hashbutton.grid(row=3, column=0, columnspan=2)
 hashlabel = CTkLabel(root, text="", font=("Arial", 10))
 hashlabel.grid(row=4, column=0, columnspan=2)
 
+
+#un boutton pour copier le hash
+def copyhash():
+    """
+    Fonction qui permet de copier le hash
+    :return: None
+    """
+    #on copie le hash
+    root.clipboard_clear()
+    #root = fenêtre clipboard_append = ajouter au (copier coller enfin la mémoire en gros) hashlabel.cget("text") = on récupère le texte du label
+
+    root.clipboard_append(hashlabel.cget("text"))
+    root.update()
+
+
+copybutton = CTkButton(root, text="Copier le hash", command=copyhash)
+#on fait exprès de ne pas l'afficher tout de suite
+
+#on ajoute une entré pour pouvoir coller un hash et le comparer
+hashentry = CTkEntry(root)
+
+#le boutton pour comparer les hash
+comparehashbutton = CTkButton(root, text="Comparer les hash")
 
 
 
