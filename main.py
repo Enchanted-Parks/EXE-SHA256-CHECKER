@@ -51,7 +51,7 @@ title.grid(row=0, column=0, columnspan=2)
 
 # Juste du text
 choosefileL = CTkLabel(root, text="Choisissez un fichier: ", font=("Arial", 15))
-choosefileL.grid(row=1, column=0, columnspan=2)
+choosefileL.grid(row=1, column=0, columnspan=1)
 
 #Le boutton pout les dialogues
 fdialog = CTkButton(root, text="Choisir un fichier", command=manipfile)
@@ -80,6 +80,7 @@ def calculhash():
         hashlabel.configure(text=digest)
         #on affiche le boutton pour copier le hash
         copybutton.grid(row=5, column=0, columnspan=2)
+        hashentrylabel.grid(row=6, column=0, columnspan=1)
         hashentry.grid(row=6, column=0, columnspan=2)
         comparehashbutton.grid(row=7, column=0, columnspan=2)
     except FileNotFoundError:
@@ -110,6 +111,10 @@ def copyhash():
 
 copybutton = CTkButton(root, text="Copier le hash", command=copyhash)
 #on fait exprès de ne pas l'afficher tout de suite
+
+#le texte pour dire quoi mettre
+hashentrylabel = CTkLabel(root, text="Entrez un hash pour comparer: ", font=("Arial", 15))
+
 
 #on ajoute une entré pour pouvoir coller un hash et le comparer
 hashentry = CTkEntry(root)
