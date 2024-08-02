@@ -152,5 +152,10 @@ hashcompres = CTkLabel(root, text="", font=("Arial", 10))
 hashcompres.grid(row=8, column=0, columnspan=2)
 
 
+#credit
+credit = CTkLabel(root, text="Fait par Snipeur060 pour ENCHANTED PARKS", font=("Arial", 10))
+credit.grid(row=9, column=0, columnspan=2)
+
+
 
 root.mainloop()
