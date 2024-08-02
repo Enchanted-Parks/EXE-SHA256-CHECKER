@@ -110,8 +110,28 @@ copybutton = CTkButton(root, text="Copier le hash", command=copyhash)
 #on ajoute une entré pour pouvoir coller un hash et le comparer
 hashentry = CTkEntry(root)
 
+
+def comphash():
+    """
+    Fonction qui permet de comparer les hash
+    :return: None
+    """
+    #on récupère le hash du fichier
+    if hashlabel.cget("text") == "":
+        #en théorie impossible mais on ne sait jamais
+        messagebox.showerror("Erreur", "Veuillez calculer le hash d'un fichier avant de comparer les hash")
+        return
+    hash = hashlabel.cget("text")
+    #on récupère le hash entré par l'utilisateur
+    hash2 = hashentry.get()
+    #on compare les hash
+    if hash == hash2:
+        messagebox.showinfo("No problemo", "Les hash sont identiques")
+    else:
+        messagebox.showerror("Attention !!!", "Les hash ne sont pas identiques ⚠️")
+
 #le boutton pour comparer les hash
-comparehashbutton = CTkButton(root, text="Comparer les hash")
+comparehashbutton = CTkButton(root, text="Comparer les hash",command=comphash)
 
 
 
