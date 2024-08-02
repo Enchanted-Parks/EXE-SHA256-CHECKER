@@ -65,12 +65,17 @@ def calculhash():
     Fonction qui permet de calculer le hash d'un fichier
     :return: None
     """
-    #on récupère le chemin du fichier
-    file = path.cget("text")
-    #on calcul le hash du fichier
-    digest = checkdigest(file)
-    #on affiche le hash du fichier
-    hashlabel.configure(text=digest)
+    try:
+        #on récupère le chemin du fichier
+        if path.cget("text") == "":
+            raise FileNotFoundError
+        file = path.cget("text")
+        #on calcul le hash du fichier
+        digest = checkdigest(file)
+        #on affiche le hash du fichier
+        hashlabel.configure(text=digest)
+    except FileNotFoundError:
+        messagebox.showerror("Erreur", "Veuillez choisir un fichier avant de calculer le hash")
 
 
 hashbutton = CTkButton(root, text="Calculer le hash", command=calculhash)
