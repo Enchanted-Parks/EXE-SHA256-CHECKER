@@ -1,8 +1,10 @@
 from customtkinter import *
 from tkinter import *
 from tkinter import filedialog
+from digest import checkdigest
 
-#gestion fenêtre
+# nouvelle fenêtre
+
 root = CTk()
 root.title("Enpa Digest")
 root.geometry("800x600")
