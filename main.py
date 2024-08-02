@@ -2,6 +2,7 @@ from customtkinter import *
 from tkinter import *
 from tkinter import filedialog
 from digest import checkdigest
+from tkinter import messagebox
 
 # nouvelle fenêtre
 
@@ -9,7 +10,7 @@ root = CTk()
 root.title("Enpa Digest")
 root.geometry("800x600")
 root.resizable(False, False)
-
+calculable = False
 #on force un peut pour que le texte soit bien collé
 n_rows = 10
 n_columns = 2
@@ -20,11 +21,20 @@ for i in range(n_columns):
     root.grid_columnconfigure(i, weight=1)
 
 def fichier_dialogue():
+    global calculable
     """
     Fonction qui permet de choisir un fichier
     :return: le chemin du fichier
     """
-    return filedialog.askopenfilename()
+    try:
+        result = filedialog.askopenfilename()
+        calculable = True
+        return result
+    except Exception as e:
+        messagebox.showerror("Erreur", "Erreur lors de la sélection du fichier")
+        return None
+    finally:
+        calculable = False
 
 def manipfile():
     """
@@ -35,6 +45,7 @@ def manipfile():
     file = fichier_dialogue()
     #on affiche le chemin du fichier
     path.configure(text=file)
+
 
 
 #Le titre
