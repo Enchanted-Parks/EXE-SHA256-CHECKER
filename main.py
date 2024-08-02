@@ -21,20 +21,11 @@ for i in range(n_columns):
     root.grid_columnconfigure(i, weight=1)
 
 def fichier_dialogue():
-    global calculable
     """
     Fonction qui permet de choisir un fichier
     :return: le chemin du fichier
     """
-    try:
-        result = filedialog.askopenfilename()
-        calculable = True
-        return result
-    except Exception as e:
-        messagebox.showerror("Erreur", "Erreur lors de la sélection du fichier")
-        return None
-    finally:
-        calculable = False
+    return filedialog.askopenfilename()
 
 def manipfile():
     """
