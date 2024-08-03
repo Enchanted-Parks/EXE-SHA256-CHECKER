@@ -6,7 +6,7 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="https://raw.githubusercontent.com/Enchanted-Parks/EXE-SHA256-CHECKER/main/EnpaChekSum.png" alt="project-screenshot" width="400" height="400/">
+<img src="https://raw.githubusercontent.com/Enchanted-Parks/EXE-SHA256-CHECKER/main/EnpaChekSum.png" alt="project-screenshot" width="800" height="600/">
 
 <h2>🛠️ Installation Steps:</h2>
 
